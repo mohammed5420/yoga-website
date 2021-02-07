@@ -1,0 +1,1024 @@
+:root{
+    --color: #494949;
+    --light-color: #83d4ec; 
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: poppins,sans-serif;
+    background-color: rgb(252, 252, 252);
+    overflow-x: hidden;
+}
+
+.over-flow{
+    overflow-y: hidden;
+}
+
+a{
+    transition: all .2s ease-in-out;
+}
+
+.btn:hover{
+    transform: translate(0 , -3px);
+    box-shadow: 0px 20px 20px rgba(51, 51, 51, 0.616);
+}
+.btn:active{
+    transform: translate(0 , -2px);
+    box-shadow: 0px 15px 20px rgba(51, 51, 51, 0.212);
+}
+
+header , .nav-bar, .nav-links , .humberger{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header{
+    position: relative;
+    width: 100%;
+    height: 110vh;
+    background-image: url(../img/img-16.png);
+    background-size: 100% 100%;
+    z-index: 2;
+}
+
+
+.nav-bar{
+    flex-direction: row;
+    width: 90%;
+    margin: 30px auto 0;
+    height: 80px;
+    justify-content: center;
+}
+
+.nav-bar .nav-links{
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+.nav-bar .nav-link{
+    text-transform: capitalize;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 4px 40px;
+    border-right: solid 2px var(--light-color);
+    color: var(--light-color);
+}
+
+.nav-bar .nav-links  li:first-child{
+    border-left: solid 2px var(--light-color);
+}
+
+.nav-bar .humberger{
+    display: block;
+    width: 25px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+
+.nav-bar .humberger-active{
+    position: relative;
+    transform: rotate(720deg); 
+    top: 30px;
+    right: 30px;
+}
+
+.nav-bar .humberger-active span{
+    position: absolute;
+    left: 0;
+    height: 0;
+}
+
+.nav-bar .humberger-active span:nth-child(1){
+    transform: rotate(45deg);
+}
+.nav-bar .humberger-active span:nth-child(2){
+    opacity: 0;
+}
+.nav-bar .humberger-active span:nth-child(3){
+    transform: rotate(130deg);
+}
+
+.nav-bar .humberger >span{
+    width: 100%;
+    height: 3px;
+    margin-bottom: 4px;
+    background-color: var(--light-color);
+    transition: all .5s ease-in-out;
+}
+.open{
+    position: relative;
+    width: 100%;
+    z-index: 99;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    display: block;
+    transition: all 600ms ease-in;
+}
+.open > .nav-links{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.open > .nav-links .nav-link{
+    position: relative;
+    border: none;
+    font-size: 30px;
+    
+}
+
+.open > .nav-links li:first-of-type{
+    border: none;
+}
+
+.open > .nav-links .nav-link::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    background-color: var(--light-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all 250ms ease-in;
+
+}
+
+.open > .nav-links .nav-link:hover::after{
+    transform: scaleX(1);
+    transform-origin: right;
+
+}
+.header-wraper{
+    width: 100%;
+    text-align: center;
+}
+.logo{
+    text-align: center;
+    height: 90px;
+}
+
+.logo >img{
+    height: 100%;
+}
+
+.header-wraper .title{
+    position: relative;
+    text-transform: uppercase;
+    font-size: calc(5vw + 1em);
+    font-weight: 700;
+    letter-spacing: 6px;
+    padding-bottom: 15px;
+    margin: 1rem auto;
+    color: #fff;
+}
+
+.header-wraper .title >span{
+    font-weight: 500;
+}
+
+.header-wraper .title::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%  , 0);
+    height: 5px;
+    border-radius: 5px;
+    width: 60%;
+    background-color: #fff;
+}
+
+.header-wraper >h2{
+    text-transform: uppercase;
+    font-size: 35px;
+    font-weight: 300;
+    letter-spacing: -1px;
+    color: var(--light-color);
+}
+.header-wraper >p{
+    width: 511px;
+    margin: 10px auto 35px;
+    font-size: 17px;
+    color: var(--light-color);
+    text-align: center;
+}
+
+.header-wraper a{
+    position: relative;
+    display: inline-block;
+    text-transform: capitalize;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 7px 60px;
+    color: var(--color);
+    border-radius: 3px;
+    background-color: #fff;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.header-wraper a::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--light-color);
+    z-index: -1;
+    transform: scale(0);;
+    transform-origin: bottom;
+    transition: all 250ms ease-in;
+}
+
+.header-wraper a:hover::after{
+    transform: scale(1);
+    transform-origin: top;
+}
+
+/***********************************/
+/********    PHILOSOPHY  ***********/ 
+/***********************************/
+
+.philosophy{
+    margin-top: -370px;
+    width: 100%;
+    background-image: url(../img/img1.png);
+    background-position: center;
+    background-size: cover;
+    height: 1550px;
+    z-index: -1;
+}
+
+.philosophy-contener{
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -40%);
+    background-image: url(../img/img-17.png);
+    background-size: cover;
+    background-position: top;
+    padding: 150px 0 500px;
+
+}
+.philosophy-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+
+
+.philosophy-title >h1{
+    position: relative;
+    text-transform: uppercase;
+    font-size: 44px;
+    letter-spacing: 7px;
+    color: var(--color);
+    padding: 20px 15px;
+    transition: all .2s ease-in-out;
+}
+
+.philosophy-title >h1::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%  , 0);
+    height: 5px;
+    border-radius: 5px;
+    width: 85%;
+    background-color: var(--light-color);
+}
+
+.philosophy-title >h1:hover{
+    margin: 0 10px;
+}
+
+.text-wraper{
+    width:100%;
+    display: grid;
+    grid-template-columns: 330px 330px;
+    grid-column-gap: 3em;
+    grid-row-gap: 1em;
+    margin-top: 100px;
+    justify-content: center;
+
+}
+
+.philosophy-contener .text-wraper>p{
+    font-size: 17px;
+    width: 100%;
+    text-align: justify;
+    font-weight: 300;
+    color: var(--color);
+}
+
+
+.philosophy-contener .text-wraper>a{
+    display: inline-block;
+    text-transform: capitalize;
+    grid-column: 2/3;
+    margin-left: auto ;
+    margin-bottom: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 3px;
+    z-index: 9999999;
+    background-color: var(--color);
+}
+
+/*******************************************/
+/********** BODY HARMONY *******************/
+/*******************************************/
+
+.body-harmony{
+    position: relative;
+    width: 100%;
+    padding-bottom: 300px;
+    background-image: url(../img/img-18.png);
+    background-size: cover;
+    background-position: top;
+    top: -390px;
+    z-index: -1;
+}
+.card-contener{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 500px;
+}
+
+.card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 250px;
+    margin: 0 50px 100px;
+}
+
+.card .card-title{
+    text-align: center;
+    width: 200px;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--light-color);
+}
+
+.card >img{
+    margin: 20px 0;
+    width: 250px;
+    transition: all .5s ease-in-out;
+
+}
+
+.card >img:hover{
+    transform: scale(1.04);
+}
+
+.card .card-content{
+    width: 100%;
+    font-size: 14px;
+    color: #fff;
+    text-align: justify;
+    margin: 15px 0;
+}
+
+.card .card-footer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card .card-footer >img{
+    height: 25px;
+    margin-right: 30px;
+}
+.card .card-footer >a{
+    display: inline-block;
+    font-size: 18px;
+    padding: 7px 25px;
+    color: #fff;
+    background-color: var(--light-color);
+    border-radius: 3px;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+#img{
+    position: absolute;
+    right: 0;
+    z-index: 99;
+}
+/*******************************************/
+/********** YOGA BEGINNER ********************/
+/*******************************************/
+
+.yoga-beginners{
+    position: relative;
+    top: -260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.yoga-beginners >p{
+    width: 300px;
+    text-transform: uppercase;
+    padding: 15px 20px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 600;
+    border: 3px solid var(--color);
+    border-radius: 3px;
+    color: var(--color);
+    margin-bottom: 150px;
+}
+
+.beginner-box{
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-template-rows: minmax(400px , auto);
+    grid-column-gap: 10%;
+    margin-bottom: 100px;
+}
+
+.text-contener{
+    position: relative;
+}
+
+.beginner-box > .text-contener > p{
+    font-size: larger;
+    width: 330px;
+    line-height: 20px;
+    text-align: justify;
+    color: var(--color);
+    padding: 0 0 25px;
+}
+
+.beginner-box > .text-contener >.text-contener-footer > img{
+    width: 30px;
+    margin-right: 30px;
+}
+
+.text-contener-footer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.beginner-box > .text-contener >.text-contener-footer >a{
+    display: inline-block;
+    text-decoration: none;
+    color: var(--light-color);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#dbackground:hover{
+    padding: 7px 40px;
+    background-color: var(--color);
+    border-radius: 3px;
+}
+
+.beginner-box > .img-contener >img{
+    width: 100%;
+}
+
+.qoute{
+    position: relative;
+    top: -200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-template-rows: 400px;
+    grid-row-gap: 4rem;
+    grid-column-gap: 10%;
+}
+
+.qoute >#back{
+    position: absolute;
+    width: 100%;
+    top: 200px;
+    z-index: -1;
+}
+
+
+.qoute > .qoute-img >img{
+    width: 100%;
+    height: 100%;
+}
+
+.qoute > .qoute-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--color);
+    padding: 30px 0;
+}
+
+.qoute > .qoute-text >p:nth-child(1) >span{
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    margin: 10px auto;
+}
+
+.qoute > .qoute-text > .qoute-author{
+    width: 100%;
+    text-align: end;
+    padding-right: 20px;
+}
+
+.qoute > .qoute-text > .qoute-author >span{
+    color: #fff;
+}
+
+.qoute > .qoute-text > .qoute-author >img{
+    width: 30px;
+    margin-right: 10px;
+}
+
+.registration{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.registration-box{
+    width: 300px;
+    text-align: center;
+}
+
+.registration-box p:nth-child(1){
+    margin: auto;
+    width: fit-content;
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 6px;
+    padding: 10px 20px;
+    background-color: var(--color);
+    color: #fff;
+}
+
+.registration-box p:nth-child(2){
+    margin: auto;
+    width: fit-content;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    padding: 5px 15px;
+    color: var(--color);
+    background-color: #fff;
+}
+
+.registration-box p:nth-child(3){
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.registration-box p:nth-child(3) >img{
+    width: 30px;
+    transform: rotate(-114deg);
+}
+
+.registration-box p:nth-child(3) >span{
+    font-size: 25px;
+    word-spacing: 9px;
+    padding: 0 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color);
+}
+
+.registration-box p:nth-child(3) >img:nth-child(3){
+    transform: rotate(307deg);
+}
+
+.registration-box >a{
+    display: inline-block;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 20px;
+    padding: 6px 20px;
+    word-spacing: 5px;
+    color: #fff;
+    background-color: var(--color);
+}
+
+.body-class{
+    position: relative;
+    width: 100%;
+    z-index: 99;
+    margin-top: 370px;
+}
+
+.body-class .card-contener{
+    padding-top: 0;
+    background-color: #fff;
+}
+
+.body-class .card-contener .card .card-content{
+    width: 100%;
+    font-size: 14px;
+    color: var(--color);
+    text-align: justify;
+    margin: 15px 0;
+}
+
+/*******************************************/
+/********** METHODOLOGY ********************/
+/*******************************************/
+
+.methodology {
+    position: relative;
+    width: 100%;
+    background-image: url(../img/img-21.png);
+    background-position: top;
+    background-size: cover;
+    height: 850px;
+    z-index: 99;
+}
+
+.methodology-contener {
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -40%);
+    text-align: center;
+}
+
+.methodology-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.methodology-title >h1 {
+    position: relative;
+    text-transform: uppercase;
+    font-size: 44px;
+    letter-spacing: 7px;
+    color: var(--light-color);
+    padding: 20px 15px;
+}
+
+.methodology-title >h1::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%  , 0);
+    height: 5px;
+    border-radius: 5px;
+    width: 85%;
+    background-color: var(--light-color);
+}
+
+ .text-wraper{
+    width:100%;
+    display: grid;
+    grid-template-columns: 330px 330px;
+    grid-column-gap: 3em;
+    grid-row-gap: 1em;
+    margin-top: 100px;
+    justify-content: center;
+
+}
+
+.methodology-contener .text-wraper>p{
+    font-size: 17px;
+    width: 100%;
+    text-align: justify;
+    font-weight: 300;
+    color: var(--light-color);
+    margin-bottom: 20px;
+}
+
+.methodology-contener #ancor{
+    display: inline-block;
+    text-transform: capitalize;
+    margin-left: auto ;
+    margin-bottom: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    color: var(--color);
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+/*******************************************/
+/**************   FOOTER    ****************/
+/*******************************************/
+
+footer{
+    position: relative;
+    width: 100%;
+    top: -130px;
+    background-image: url(../img/img-11.png);
+    background-position: left;
+    background-size: cover;
+    height: 960px;
+}
+
+footer .yoga-therapy{
+    width: 330px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-170%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .yoga-therapy p{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+footer .yoga-therapy p img{
+    width: 40px;
+    margin-right: 20px;
+}
+
+footer .yoga-therapy p span{
+    letter-spacing: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+footer .yoga-therapy  >h1{
+    position: relative;
+    text-transform: uppercase;
+    font-size: 25px;
+    letter-spacing: 7px;
+    color: var(--color);
+    padding: 20px 15px;
+}
+
+footer .yoga-therapy  >h1::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%  , 0);
+    height: 5px;
+    border-radius: 5px;
+    width: 85%;
+    background-color: var(--light-color);
+}
+
+footer .social{
+    position: absolute;
+    bottom: -140px;
+    padding-top: 230px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-image: url(../img/img-22.png);
+    background-position: top;
+    background-size: cover;
+}
+
+.social div{
+    padding: 20px 0;
+}
+
+.social p>img{
+    width: 30px;
+    transform: rotate(127deg);
+    margin-right: 20px;
+}
+
+.social p:first-of-type{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.social .left p:last-of-type,.social .center p:last-of-type{
+    width: 250px;
+    color: #fff;
+    border-right: 2px solid #fff;
+}
+
+.social span{
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: var(--color);
+}
+
+.right >p {
+    border: 0;
+}
+
+.right > img{
+    width: 30px;
+    transform: rotate(120deg);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.social-icons img {
+    position: relative;
+    transition: transform 250ms ease-in;
+    width: 25px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+/*******************************************/
+/********** MEDIA QUERY ********************/
+/*******************************************/
+
+@media screen and (min-width: 1067px){
+
+    #three{
+        top: -150px;
+    }
+
+    #tow{
+        top: -50px;
+    }
+
+    #one{
+        top: 50px;
+    }
+    
+    .body-harmony{
+        top: -280px;
+    }
+}
+
+
+@media screen and (max-width: 980px){
+    .registration{
+        top: -100px;
+    }
+
+    .body-class{
+        margin-top: 170px;
+    }
+}
+
+
+@media screen and (max-width: 840px){
+    .text-wraper{
+        grid-template-columns: 330px;
+    }
+
+    .methodology{
+        height: 1200px;
+    }
+
+    .philosophy-contener .text-wraper >p ,.methodology-contener .text-wraper >p{
+        text-align: center;
+    }
+
+    .philosophy-contener .text-wraper>a{
+        grid-column: 1/2;
+        margin: 60px auto 0;
+    }
+
+    .card .card-content{
+        text-align: center;
+    }
+
+    .philosophy-title >h1 ,.methodology-contener .methodology-title >h1{
+        text-align: center;
+        letter-spacing: 1px;
+        font-size: 33px;
+    }
+
+    .philosophy-title img{
+        height: 30px;
+    }
+
+    .beginner-box{
+        grid-template-columns: 330px;
+    }
+
+    .beginner-box > .text-contener{
+        grid-row: 2/3;
+    }
+
+    .beginner-box > .img-contener{
+        grid-row: 1/2;
+    }
+
+    .qoute{
+        grid-template-columns: 330px;
+        justify-content: center;
+    }
+
+    .qoute > .qoute-img >img{
+        height: 233px;
+    }
+
+    .qoute >#back{
+        top: 125px;
+        height: 1800px;
+    }
+}
+
+
+@media screen and (max-width: 764px){
+
+    .nav-bar{
+        margin-top: 0;
+    }
+
+    .header-wraper >p{
+        width: 410px;
+    }
+
+    .nav-links{
+        display: none;
+    }
+
+    .nav-bar .humberger{
+        position: relative;
+        display: flex;
+        margin-left: auto;
+    }
+}
+
+@media screen and (max-width: 717px){
+    .body-harmony{
+        top: -450px;
+    }
+}
+
+@media screen and (max-width: 460px){
+    .header-wraper .title{
+        font-size: 40px;
+        margin-bottom: 40px;
+    }
+
+    .header-wraper >p{
+        width: 300px;
+        text-align: justify;
+    }
+
+    .header-wraper >h2{
+        font-size: 30px;
+    }
+
+    .philosophy-title >h1{
+        font-size: 28px;
+    }
+
+}
